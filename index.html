@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Technetix 2025 | PSVCET</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Orbitron:wght@400;700&family=Bangers&family=Press+Start+2P&family=Monoton&family=Rubik+Glitch&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .styled-img {
+            width: 200px;
+            height: 60px;
+            animation: fadeInDown 2s ease-out;
+        }
+
+        body {
+            font-family: 'Rubik Glitch', cursive;
+            background: #000;
+            color: #f6d208;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 100px 20px 50px;
+            background: none;
+            /* Removed background image */
+            animation: fadeInBackground 3s ease-in-out forwards;
+        }
+
+        .content video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            /* Ensures the video stays in the background */
+            opacity: 0.4;
+            /* Set opacity to make it slightly transparent */
+        }
+
+        h1 {
+            font-family: 'Monoton', cursive;
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            color: #36779b;
+            text-shadow: 0 0 10px #021f44, 0 0 20px #000000;
+            animation: fadeInDown 3s ease-out;
+        }
+
+        h2 {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 5rem;
+            margin-bottom: 40px;
+            color: #f34818;
+            text-shadow: 0 0 10px #e90505, 0 0 20px #796262;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        h3 {
+            font-family: 'Raleway', cursive;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            color: #ff0000;
+            text-shadow: 0 0 10px #00ffe7, 0 0 20px #3700ff;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .cta-btn {
+            background-color: #ff5722;
+            border: none;
+            padding: 15px 30px;
+            font-size: 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInBackground {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .cta-btn {
+                font-size: 1rem;
+                padding: 12px 25px;
+            }
+        }
+
+        .bottom-widgets {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin: 40px auto;
+            gap: 30px;
+            width: 90%;
+            max-width: 800px;
+            padding-left: 20px;
+        }
+
+        .widget {
+            background: rgba(145, 137, 137, 0.1);
+            padding: 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 250px;
+            font-size: 1.5rem;
+            font-family: 'Press Start 2P', cursive;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .widget:hover {
+            background: rgba(148, 35, 105, 0.3);
+            transform: scale(1.05);
+        }
+
+        .widget-content {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 105%;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            color: #0f0e4a;
+            width: 250px;
+            box-shadow: 0 0 10px rgba(206, 218, 101, 0.5);
+            animation: fadeInUp 0.5s ease-in-out;
+            z-index: 4;
+            font-family: 'ARIAL BLACK', cursive;
+        }
+
+        .widget:hover .widget-content {
+            display: block;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            color: #f2f22a;
+            position: relative;
+            z-index: 2;
+            font-family: 'Courgette', cursive;
+        }
+
+        .footer-column {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px auto;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .footer-column button {
+            width: 100%;
+            padding: 10px;
+            background-color: #210648;
+            border: none;
+            border-radius: 8px;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .footer-column .content {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .footer-column.active .content {
+            display: block;
+        }
+
+        footer video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        footer {
+            font-size: 2rem;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: rgb(246, 73, 16);
+            font-family: 'MONOTON';
+        }
+
+        iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            margin-left: 25px;
+        }
+
+        .countdown {
+            font-size: 2.5rem;
+            margin-top: 20px;
+            font-weight: bold;
+            animation: fadeInUp 1s ease-in-out;
+            font-family: 'Orbitron', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <div class="content">
+        <video autoplay muted loop>
+            <source src="psv.mp4" type="video/mp4">
+        </video>
+        <h1>PSV  COLLEGE  OF  ENGINEERING  AND  TECHNOLOGY,<br>Krishnagiri</h1>
+    </div>
+
+    <body>
+        <div class="overlay"></div>
+        <div class="content">
+            <video autoplay muted loop>
+                <source src="1.mp4" type="video/mp4">
+            </video>
+            <p style="font-size: 5.5rem; font-family: 'Monoton', cursive; color: #f6db44;">TECHNETIX 2K25</p>
+            <h2>COMPUTER SCIENCE DEPARTMENT<br>PROUDLY PRESENTS<br> May 16th, 2025</h2>
+            <div id="countdown" class="countdown"></div>
+            <button class="cta-btn">Register Now</button>
+        </div>
+        <div class="overlay"></div>
+        <div class="content">
+            <video autoplay muted loop>
+                <source src="2.mp4" type="video/mp4">
+            </video>
+            <div class="widget"> Technical Events
+                <div class="widget-content">
+                    <p>1.PREZI(PPT)</p>
+                    <p>2.AMELIO (DEBUGGING)</p>
+                </div>
+            </div><br>
+            <div class="widget">Non-Technical Events
+                <div class="widget-content">
+                    <p>1.GAMBLE FIRE(FREEFIRE)</p>
+                    <p>2.QUIZ</p>
+                </div>
+            </div><br>
+            <div class="widget">Schedule
+                <div class="widget-content">
+                    <p>Inauguration: 09:30 AM</p>
+                    <p>Events: 11:00 AM - 04:00 PM</p>
+                    <p>Eventual: 4:10 PM</p>
+                </div>
+            </div><br>
+            <div class="widget">Contact
+                <div class="widget-content">
+                    <p>VIJAY.M  7708848257</p>
+                    <p>MUGILAN.S  6369259042</p>
+                    <p>DHARANEE  9500465047</p>
+                    <p>MONISH.S 7806970499</p>
+                    <p>MOSES.D  7538803731</p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="overlay"></div>
+            <div class="content">
+                <video autoplay muted loop>
+                    <source src="3.mp4" type="video/mp4">
+                </video>
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <button>
+                            <h4>About Us</h4>
+                        </button>
+                        <p>Technetix is a national-level symposium organized by the Department of Computer Science
+                            Department at PSV College.</p>
+                    </div>
+                    <div class="footer-column">
+                        <button>
+                            <h4>Follow Us</h4>
+                        </button>
+                        <p>Instagram: technetix_2k25</p>
+                        <p>Twitter: @technetix_psv</p>
+                    </div>
+                    <div class="footer-column">
+                        <button>
+                            <h4>Info</h4>
+                        </button>
+                        <p>Email: technetix2k25@gmail.com</p>
+                        <p>Phone: +91-9500465047</p>
+                    </div>
+                    <div class="footer-column">
+                        <button>
+                            <h4>Venue</h4>
+                        </button>
+                        <p>PSV College of Engineering and Technology,<br>Mittapalli, Krishnagiri,635108.</p>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15578.738670183531!2d78.3046845960327!3d12.537036800000015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bac4aa522bf0545%3A0xd86e183d11d2bfc3!2sPSV%20College%20of%20Engineering%20%26%20Technology%20(Autonomous)!5e0!3m2!1sen!2sin!4v1746523988630!5m2!1sen!2sin"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <p>&copy; 2025 Technetix | PSVCET |<br> 3rd YEAR TECHTEAM</p>
+        </footer>
+
+        <script>
+            document.querySelector('.cta-btn').addEventListener('click', function () {
+                window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdBcUlrpAiFQ0JWDoxFJCjTKlt3NTpiOXv3z1Pt8yfC7dckSg/viewform";
+            });
+
+            // Countdown Timer
+            const countdownElement = document.getElementById('countdown');
+            const eventDate = new Date("May 16, 2025 00:00:00").getTime();
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+
+                if (distance < 0) {
+                    countdownElement.innerHTML = "The event has started!";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            setInterval(updateCountdown, 1000);
+        </script>
+    </body>
+
+</html>
